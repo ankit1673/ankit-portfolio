@@ -1,0 +1,40 @@
+name: Quality checks (A11y + Lighthouse)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start static server
+        run: npx http-server ./dist -p 8080 -c-1 &
+
+      - name: Run Pa11y accessibility checks
+        run: npx -y pa11y http://127.0.0.1:8080
+
+      - name: Run Lighthouse CI (autorun)
+        run: npx -y @lhci/cli@0.11.0 autorun --upload.target=temporary-public-storage --collect.url=http://127.0.0.1:8080
+
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: ./lhci_report || true

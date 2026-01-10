@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Forces deep navy background instantly to prevent "flashing" */
+    background-color: #0f172a; 
+  }
+  
+  body {
+    background-color: #0f172a; 
+    color: #f1f5f9;
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom class to ensure head/hair are never cut off in circular photos */
+.hr-focus-photo {
+  object-fit: cover;
+  object-position: top; /* Critical: Focuses on the top of the image */
+  aspect-ratio: 1 / 1;
+}
+
+/* Professional Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }

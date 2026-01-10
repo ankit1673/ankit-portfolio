@@ -1,0 +1,44 @@
+{
+  "name": "ankit-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/vite": "^4.1.18",
+    "framer-motion": "^12.25.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "netlify-cli": "^12.0.0",
+    "nodemailer": "^6.9.5",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.2.4"
+  },
+  "scripts": {
+    "dev": "vite --port 5173",
+    "dev:strict": "vite --port 5173 --strictPort",
+    "dev:netlify": "netlify dev",
+    "build": "vite build",
+    "check:a11y": "npx -y pa11y http://127.0.0.1:8080",
+    "check:lhci": "npx -y @lhci/cli@0.11.0 autorun --upload.target=temporary-public-storage --collect.url=http://localhost:8080",
+    "check:lhci-local": "npx -y @lhci/cli@0.11.0 autorun --upload.target=temporary-public-storage --collect.url=http://localhost:8080 --collect.settings.numberOfRuns=1 --collect.settings.chromeFlags=\"--no-sandbox --disable-gpu --headless=new --no-first-run --no-default-browser-check --disable-extensions --disable-background-networking --allow-insecure-localhost --ignore-certificate-errors --disable-features=IsolateOrigins,site-per-process --disable-sync --disable-translate --test-type\"",
+    "check:lhci-127": "npx -y @lhci/cli@0.11.0 autorun --upload.target=temporary-public-storage --collect.url=http://127.0.0.1:8080 --collect.settings.numberOfRuns=1 --collect.settings.chromeFlags=\"--no-sandbox --disable-gpu --headless=new --no-first-run --no-default-browser-check --disable-extensions --disable-background-networking --allow-insecure-localhost --ignore-certificate-errors --disable-features=IsolateOrigins,site-per-process --disable-sync --disable-translate --test-type\"",
+    "check:ci": "npm run build && npx -y start-server-and-test \"npx http-server ./dist -p 8080\" http://localhost:8080 \"npx -y pa11y http://localhost:8080\" && npx -y @lhci/cli@0.11.0 autorun --upload.target=temporary-public-storage --collect.url=http://localhost:8080",
+    "add-resume": "node scripts/copy-resume.js",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  }
+}

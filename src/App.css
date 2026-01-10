@@ -1,0 +1,15 @@
+/* Minimal styles used by App component */
+.logo {
+  height: 2.5rem;
+  width: auto;
+}
+.logo.react {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+/* Basic container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
