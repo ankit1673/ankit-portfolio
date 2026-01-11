@@ -9,11 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - run: npm ci
-      - run: npm run build
+          node-version: '20' # Changed from 18 to 20 to support Vite 5.1.2
+
+      - name: Install dependencies
+        run: npm install # Changed from 'npm ci' to fix the Android platform error
+
+      - name: Build
+        run: npm run build
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
