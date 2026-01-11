@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// This matches your filename. 
-// IMPORTANT: Check if it is .jpg or .png in your folder and match it here!
+// Ensure this path and extension are 100% correct in your local folder
 import profileImg from '../assets/Ankit_Kumar_Tiwari_Photo.jpeg'; 
 
 export default function Hero() {
@@ -19,10 +18,10 @@ export default function Hero() {
             <div className="absolute inset-0 bg-cyan-400 rounded-2xl rotate-6 opacity-20"></div>
             <img 
               src={profileImg} 
-              alt="Ankit Kumar Tiwari" 
+              alt="Ankit Kumar Tiwari - Frontend Developer Portfolio" 
               className="relative w-full h-full object-cover rounded-2xl border-2 border-cyan-400/50 transition-all duration-500"
+              loading="eager" // Better for Hero images to improve LCP score
               onError={(e) => {
-                // Safety net: prevents blank screen if path is still wrong
                 e.target.src = "https://ui-avatars.com/api/?name=Ankit+Tiwari&background=0ea5e9&color=fff&size=128";
               }}
             />
@@ -52,10 +51,18 @@ export default function Hero() {
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-6">
-            <a href="#projects" className="px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-lg hover:bg-cyan-400 transition-all">
+            <a 
+              href="#projects" 
+              aria-label="View Ankit's projects"
+              className="px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-lg hover:bg-cyan-400 transition-all"
+            >
               View My Work
             </a>
-            <a href="#contact" className="px-8 py-3 border border-slate-700 text-white font-bold rounded-lg hover:border-cyan-400 transition-all">
+            <a 
+              href="#contact" 
+              aria-label="Contact Ankit Kumar Tiwari"
+              className="px-8 py-3 border border-slate-700 text-white font-bold rounded-lg hover:border-cyan-400 transition-all"
+            >
               Contact Me
             </a>
           </div>
