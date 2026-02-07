@@ -22,7 +22,7 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <a href="/Ankit_Kumar_Tiwari_BCA_2026.pdf" target="_blank" className="px-5 py-2 border border-cyan-400 text-cyan-400 rounded-md text-xs font-bold uppercase hover:bg-cyan-400/10 transition-all">
+          <a href="/ankit-portfolio/Ankit_Kumar_Tiwari_BCA_2026.pdf" target="_blank" className="px-5 py-2 border border-cyan-400 text-cyan-400 rounded-md text-xs font-bold uppercase hover:bg-cyan-400/10 transition-all">
             Resume
           </a>
         </div>
